@@ -15,7 +15,7 @@ router.post("/womens",async(req,res) =>{
 })
 
 //handle get request
-router.get("/womens",async(req,res) =>{
+router.get("/",async(req,res) =>{
     try{
         const getWomens = await WomenClothing.find({}).sort({"id":1});
         res.send(getWomens);
