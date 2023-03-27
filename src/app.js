@@ -10,6 +10,10 @@ const port = process.env.PORT || 3000;
 app.use(express.json());
 app.use(router);
 
+var cors = require('cors')
+
+app.use(cors())
+
 const start = async() =>{
     try{
         await connectDB();
