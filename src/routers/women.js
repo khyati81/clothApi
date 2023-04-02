@@ -3,7 +3,7 @@ const router = new express.Router();
 const WomenClothing = require("../models/women");
 
 //handle post request
-router.post("/womens",async(req,res) =>{
+router.post("/clothing",async(req,res) =>{
     try{
         const addingWomensRecord = new WomenClothing(req.body)
         console.log(req.body);
@@ -26,7 +26,7 @@ router.get("/clothing",async(req,res) =>{
 })
 
 //handle get request of individual
-router.get("/womens/:id",async(req,res) =>{
+router.get("/clothing/:id",async(req,res) =>{
     try{
         const _id = req.params.id;
         const getWomen = await WomenClothing.findById(_id);
@@ -37,7 +37,7 @@ router.get("/womens/:id",async(req,res) =>{
 })
 
 //handle patch request of individual
-router.patch("/womens/:id",async(req,res) =>{
+router.patch("/clothing/:id",async(req,res) =>{
     try{
         const _id = req.params.id;
         const getWomen = await WomenClothing.findByIdAndUpdate(_id,req.body);
@@ -48,7 +48,7 @@ router.patch("/womens/:id",async(req,res) =>{
 })
 
 //handle delete request of individual
-router.delete("/womens/:id",async(req,res) =>{
+router.delete("/clothing/:id",async(req,res) =>{
     try{
         const _id = req.params.id;
         const getWomen = await WomenClothing.findByIdAndDelete(_id);
