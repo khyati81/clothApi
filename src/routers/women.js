@@ -28,8 +28,12 @@ router.get("/clothing",async(req,res) =>{
 //handle get request of individual
 router.get("/clothing/:id",async(req,res) =>{
     try{
-        const _id = req.params.id;
-        const getWomen = await WomenClothing.findById(_id);
+        const id = req.params.id;
+        // console.log(req.params);
+        const getWomen = await WomenClothing.findOne({id:id});
+        if (!getWomen) {
+            return res.status(404).send({ error: 'Product not found' });
+        }
         res.send(getWomen);
     }catch(e){
         res.status(400).send(e);
